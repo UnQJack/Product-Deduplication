@@ -31,7 +31,7 @@ df["cluster"] = clustering.labels_
 # duplicatele
 def merge_products(group):
     return pd.Series({
-        "product_name": group["product_name"].iloc[0],  # Take the first name
+        "product_name": group["product_name"].iloc[0],
         "brand": group["brand"].mode()[0] if not group["brand"].mode().empty else group["brand"].iloc[0],
         "description": max(group["description"], key=len) if group["description"].notna().any() else None,
         "price_min": group["price"].min(),
